@@ -88,14 +88,21 @@ $curlError  = curl_error($ch);
 curl_close($ch);
 
 if ($curlError) {
+    // Log cURL error to a file for debugging
+    file_put_contents('../data/telegram_debug.log', date('Y-m-d H:i:s') . " CURL ERROR: $curlError\n", FILE_APPEND);
     echo json_encode(['success' => false, 'error' => $curlError]);
     exit;
 }
 
 $telegramResponse = json_decode($response, true);
 
+// Log Telegram API response for debugging
+file_put_contents('../data/telegram_debug.log', date('Y-m-d H:i:s') . " RESPONSE: $response\n", FILE_APPEND);
+
 if ($httpStatus === 200 && isset($telegramResponse['ok']) && $telegramResponse['ok']) {
     echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['success' => false, 'error' => $telegramResponse['description'] ?? 'Unknown error']);
+    $errorMsg = $telegramResponse['description'] ?? 'Unknown error';
+    file_put_contents('../data/telegram_debug.log', date('Y-m-d H:i:s') . " ERROR: $errorMsg\n", FILE_APPEND);
+    echo json_encode(['success' => false, 'error' => $errorMsg]);
 }
