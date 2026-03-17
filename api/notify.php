@@ -89,10 +89,10 @@ $resultLabels = [
 $label = isset($resultLabels[$result]) ? $resultLabels[$result] : $result;
 
 $lines = [
-    "{$emoji} *{$label}*",
+    "{$emoji} <b>{$label}</b>",
     "",
-    "🇹🇭 Thai word: *{$thaiWord}*",
-    "🇬🇧 English word: *{$englishWord}*",
+    "🇹🇭 Thai word: <b>{$thaiWord}</b>",
+    "🇬🇧 English word: <b>{$englishWord}</b>",
 ];
 
 if ($result === 'incorrect' && $userAnswer !== '') {
@@ -100,7 +100,7 @@ if ($result === 'incorrect' && $userAnswer !== '') {
 }
 
 $lines[] = "";
-$lines[] = "🏆 Score: *{$score}*";
+$lines[] = "🏆 Score: <b>{$score}</b>";
 
 $message = implode("\n", $lines);
 
@@ -108,7 +108,7 @@ $url     = "https://api.telegram.org/bot{$botToken}/sendMessage";
 $payload = [
     'chat_id'    => $chatId,
     'text'       => $message,
-    'parse_mode' => 'Markdown',
+    'parse_mode' => 'HTML',
 ];
 
 $ch = curl_init($url);
@@ -117,6 +117,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 $response   = curl_exec($ch);
 $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);

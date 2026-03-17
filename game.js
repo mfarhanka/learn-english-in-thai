@@ -170,7 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 score,
                 user_answer: userAnswer,
             }),
-        }).catch((err) => console.warn('Telegram notification failed:', err));
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success) console.error('Telegram error:', data.error);
+        })
+        .catch((err) => console.warn('Telegram notification failed:', err));
     };
 
     loadGameData();
