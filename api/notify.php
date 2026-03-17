@@ -7,44 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// --- Same-origin protection -------------------------------------------------
-// Allow requests whose Origin or Referer header matches this server's host.
-// Requests with neither header (e.g. direct curl calls) are rejected.
-$serverHost = $_SERVER['HTTP_HOST'] ?? '';
-$origin     = $_SERVER['HTTP_ORIGIN']  ?? '';
-$referer    = $_SERVER['HTTP_REFERER'] ?? '';
-
-$originHost  = $origin  ? parse_url($origin,  PHP_URL_HOST) : '';
-$refererHost = $referer ? parse_url($referer, PHP_URL_HOST) : '';
-
-if ($originHost !== $serverHost && $refererHost !== $serverHost) {
-    http_response_code(403);
-    echo json_encode(['error' => 'Forbidden']);
-    exit;
-}
-
-// --- Simple IP-based rate limiting (10 notifications per minute) -----------
-session_start();
-$now    = time();
-$window = 60;
-$limit  = 10;
-
-if (!isset($_SESSION['notify_times']) || !is_array($_SESSION['notify_times'])) {
-    $_SESSION['notify_times'] = [];
-}
-// Remove timestamps outside the current window
-$_SESSION['notify_times'] = array_filter(
-    $_SESSION['notify_times'],
-    fn($t) => ($now - $t) < $window
-);
-
-if (count($_SESSION['notify_times']) >= $limit) {
-    http_response_code(429);
-    echo json_encode(['error' => 'Too many requests']);
-    exit;
-}
-$_SESSION['notify_times'][] = $now;
-// ---------------------------------------------------------------------------
+// Removed Same-origin protection and IP-based rate limiting for testing
 
 $configFile = '../config.php';
 if (file_exists($configFile)) {
