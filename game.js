@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputEl = document.getElementById('eng-input');
     const form = document.getElementById('game-form');
     const checkBtn = document.getElementById('submit-btn');
+    const showAnswerBtn = document.getElementById('show-answer-btn');
     const nextBtn = document.getElementById('next-btn');
     const feedbackEl = document.getElementById('feedback');
     const scoreEl = document.getElementById('score');
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => inputEl.focus(), 100);
         
         checkBtn.classList.remove('hidden');
+        showAnswerBtn.classList.remove('hidden');
         nextBtn.classList.add('hidden');
         
         feedbackEl.classList.remove('show');
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             inputEl.disabled = true;
             
             checkBtn.classList.add('hidden');
+            showAnswerBtn.classList.add('hidden');
             nextBtn.classList.remove('hidden');
             nextBtn.focus();
             
@@ -103,6 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (score > 0) score -= 2;
             updateScore();
         }
+    });
+
+    showAnswerBtn.addEventListener('click', () => {
+        if (!currentWord) return;
+        
+        inputEl.value = currentWord.english_word;
+        showFeedback(`The answer is: ${currentWord.english_word}`, '#fbbf24'); // Yellow/Amber
+        inputEl.disabled = true;
+        
+        checkBtn.classList.add('hidden');
+        showAnswerBtn.classList.add('hidden');
+        nextBtn.classList.remove('hidden');
+        nextBtn.focus();
+        
+        if (score > 0) score -= 1; // Minor penalty for revealing
+        updateScore();
+        
+        cardEl.classList.remove('shake', 'success-anim');
     });
 
     nextBtn.addEventListener('click', () => {

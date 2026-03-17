@@ -1,20 +1,104 @@
 [
     {
-        "id": "69b8ff8061288",
+        "id": "69b900001a1a1",
         "thai_word": "คุณ",
         "english_word": "you",
-        "created_at": "2026-03-17T08:15:12+01:00"
+        "created_at": "2026-03-17T08:20:00+01:00"
     },
     {
-        "id": "69b8ff923bc3d",
+        "id": "69b900002b2b2",
         "thai_word": "ฉัน",
         "english_word": "me",
-        "created_at": "2026-03-17T08:15:30+01:00"
+        "created_at": "2026-03-17T08:20:05+01:00"
     },
     {
-        "id": "69b8ffb1d0ec3",
+        "id": "69b900003c3c3",
         "thai_word": "พ่อ",
         "english_word": "father",
-        "created_at": "2026-03-17T08:16:01+01:00"
+        "created_at": "2026-03-17T08:20:10+01:00"
+    },
+    {
+        "id": "69b900004d4d4",
+        "thai_word": "แม่",
+        "english_word": "mother",
+        "created_at": "2026-03-17T08:20:15+01:00"
+    },
+    {
+        "id": "69b900005e5e5",
+        "thai_word": "อะไร",
+        "english_word": "what",
+        "created_at": "2026-03-17T08:20:20+01:00"
+    },
+    {
+        "id": "69b900006f6f6",
+        "thai_word": "ทำไม",
+        "english_word": "why",
+        "created_at": "2026-03-17T08:20:25+01:00"
+    },
+    {
+        "id": "69b900007a7a7",
+        "thai_word": "ที่ไหน",
+        "english_word": "where",
+        "created_at": "2026-03-17T08:20:30+01:00"
+    },
+    {
+        "id": "69b900008b8b8",
+        "thai_word": "เมื่อไหร่",
+        "english_word": "when",
+        "created_at": "2026-03-17T08:20:35+01:00"
+    },
+    {
+        "id": "69b900009c9c9",
+        "thai_word": "เสร็จแล้ว",
+        "english_word": "done",
+        "created_at": "2026-03-17T08:20:40+01:00"
+    },
+    {
+        "id": "69b90000adada",
+        "thai_word": "ยังไม่",
+        "english_word": "not yet",
+        "created_at": "2026-03-17T08:20:45+01:00"
+    },
+    {
+        "id": "69b90000bebeb",
+        "thai_word": "กิน",
+        "english_word": "eat",
+        "created_at": "2026-03-17T08:20:50+01:00"
+    },
+    {
+        "id": "69b90000cfcfc",
+        "thai_word": "ดื่ม",
+        "english_word": "drink",
+        "created_at": "2026-03-17T08:20:55+01:00"
+    },
+    {
+        "id": "69b90000d0d0d",
+        "thai_word": "ปลา",
+        "english_word": "fish",
+        "created_at": "2026-03-17T08:21:00+01:00"
+    },
+    {
+        "id": "69b90000e1e1e",
+        "thai_word": "ไก่",
+        "english_word": "chicken",
+        "created_at": "2026-03-17T08:21:05+01:00"
+    },
+    {
+        "id": "69b90000f2f2f",
+        "thai_word": "เนื้อ",
+        "english_word": "meat",
+        "created_at": "2026-03-17T08:21:10+01:00"
+    },
+    {
+        "id": "69b9000103030",
+        "thai_word": "บ้าน",
+        "english_word": "home",
+        "created_at": "2026-03-17T08:21:15+01:00"
+    },
+    {
+        "id": "69b9000114141",
+        "thai_word": "โรงเรียน",
+        "english_word": "school",
+        "created_at": "2026-03-17T08:21:20+01:00"
     }
 ]

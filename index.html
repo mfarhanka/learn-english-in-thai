@@ -30,7 +30,10 @@
             <div class="input-area">
                 <form id="game-form">
                     <input type="text" id="eng-input" placeholder="Type English word" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
-                    <button type="submit" class="btn-check" id="submit-btn" disabled>Check</button>
+                    <div class="button-group">
+                        <button type="submit" class="btn-check" id="submit-btn" disabled>Check</button>
+                        <button type="button" class="btn-show-answer hidden" id="show-answer-btn">Show Answer</button>
+                    </div>
                     <button type="button" class="btn-next hidden" id="next-btn">Next Word</button>
                 </form>
             </div>
