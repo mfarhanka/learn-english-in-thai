@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Correct
             score += 10;
             updateScore();
+            sendNotification('correct');
             showFeedback('Correct! Well done 🎉', '#10b981'); // success color
             inputEl.disabled = true;
             
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             void cardEl.offsetWidth;
             cardEl.classList.add('shake');
             
+            sendNotification('incorrect', answer);
             inputEl.value = '';
             inputEl.focus();
             
@@ -122,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (score > 0) score -= 1; // Minor penalty for revealing
         updateScore();
+        sendNotification('revealed');
         
         cardEl.classList.remove('shake', 'success-anim');
     });
@@ -153,6 +156,21 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreEl.style.color = 'white';
             scoreEl.style.transition = 'transform 0.2s, color 0.5s';
         }, 300);
+    };
+
+    const sendNotification = (result, userAnswer = '') => {
+        if (!currentWord) return;
+        fetch('api/notify.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                thai_word: currentWord.thai_word,
+                english_word: currentWord.english_word,
+                result,
+                score,
+                user_answer: userAnswer,
+            }),
+        }).catch((err) => console.warn('Telegram notification failed:', err));
     };
 
     loadGameData();
