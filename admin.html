@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Learn English App</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <h1>Vocabulary Admin</h1>
+            <a href="index.html" class="nav-btn">Go to Game</a>
+        </header>
+
+        <section class="add-word-section">
+            <h2>Add New Word Pair</h2>
+            <form id="add-word-form">
+                <div class="input-group">
+                    <label for="thai-word">Thai Word</label>
+                    <input type="text" id="thai-word" required placeholder="e.g. แมว">
+                </div>
+                <div class="input-group">
+                    <label for="eng-word">English Word</label>
+                    <input type="text" id="eng-word" required placeholder="e.g. cat">
+                </div>
+                <button type="submit" class="btn-primary">Add Word</button>
+            </form>
+            <div id="add-message" class="message hidden"></div>
+        </section>
+
+        <section class="word-list-section">
+            <h2>Current Words</h2>
+            <div class="list-container">
+                <table id="word-table">
+                    <thead>
+                        <tr>
+                            <th>Thai</th>
+                            <th>English</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="word-list-body">
+                        <!-- Words injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "69b8ff8061288",
+        "thai_word": "คุณ",
+        "english_word": "you",
+        "created_at": "2026-03-17T08:15:12+01:00"
+    },
+    {
+        "id": "69b8ff923bc3d",
+        "thai_word": "ฉัน",
+        "english_word": "me",
+        "created_at": "2026-03-17T08:15:30+01:00"
+    },
+    {
+        "id": "69b8ffb1d0ec3",
+        "thai_word": "พ่อ",
+        "english_word": "father",
+        "created_at": "2026-03-17T08:16:01+01:00"
+    }
+]

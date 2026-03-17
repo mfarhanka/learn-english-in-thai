@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Learn English in Thai</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="score-board">Score: <span id="score">0</span></div>
+            <a href="admin.html" class="admin-link" title="Admin Panel">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+            </a>
+        </header>
+
+        <main class="game-area">
+            <div class="word-card" id="word-card">
+                <div class="card-content">
+                    <span class="label">Translate to English</span>
+                    <h1 id="thai-display" class="thai-word">Loading...</h1>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <form id="game-form">
+                    <input type="text" id="eng-input" placeholder="Type English word" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+                    <button type="submit" class="btn-check" id="submit-btn" disabled>Check</button>
+                    <button type="button" class="btn-next hidden" id="next-btn">Next Word</button>
+                </form>
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
